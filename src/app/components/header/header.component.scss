@@ -1,5 +1,5 @@
-.example-spacer {
-    flex: 1 1 auto;
+.spacer {
+  flex: 1 1 auto;
   }
 
   .mat-toolbar {
@@ -9,5 +9,11 @@
 
 .img-toolbar{
     height: 100%;
+}
+
+.title {
+  padding-left: 4%;
+  padding-bottom: 2%;
+  font-size: xx-large;
 }
 
