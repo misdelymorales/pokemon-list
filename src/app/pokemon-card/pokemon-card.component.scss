@@ -1,28 +1,40 @@
 @import "../../assets/styles/variables.scss";
 
-.container{
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center;
+.container {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .pokemon-card {
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  .card-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+  padding: 1rem;
+  margin: auto;
 
-  .card-title{
-    margin-bottom: 0.3rem;
-  }
+}
 
-  .card-content {
-    padding-top: 0.75rem;
-  }
+.mat-mdc-card-header {
+  display: flex;
+  padding: 0px 3rem 0.5rem;
+}
 
+.card-image {
+  height: 14rem;
+}
 
+img {
+  max-height: 200px;
+  max-width: 200px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  margin-bottom: 0.3rem;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.card-content {
+  padding-top: 0.75rem;
+}

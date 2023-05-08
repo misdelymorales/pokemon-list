@@ -15,4 +15,8 @@ export class PokemonService {
     return  this.http.get<any>(`${this.urlEndPoint}/pokemon/${index}`)
   }
 
+  getPokemon(name: string){
+    return this.http.get<any>(`${this.urlEndPoint}/pokemon/${name}`)
+  }
+
 }

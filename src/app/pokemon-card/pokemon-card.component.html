@@ -1,23 +1,34 @@
 <div class="container">
-    <div>
-        <mat-grid-list cols="4" gutterSize="3px">
+
+    <mat-toolbar color="#ffd700" class="main-header">
+        <span class="pokemon title">Busca tu Pokemon</span>
+        <span class="spacer"></span>
+
+        <form class="search-form">
+            <mat-form-field>
+                <mat-label>Busca tu Pokemon</mat-label>
+                <input type="text" matInput placeholder="Nombre del Pokemón" name="namePokemon"
+                    [(ngModel)]="namePokemon">
+            </mat-form-field>
+            <button mat-icon-button (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </form>
+
+    </mat-toolbar>
+
+
+    <div class="grid-container">
+
+        <mat-grid-list cols="3" rowHeight="25rem">
 
             <mat-grid-tile *ngFor="let pokemon of data">
 
                 <mat-card class="pokemon-card">
                     <mat-card-header>
-                        <mat-card-title class="card-title">{{pokemon.name}}</mat-card-title>
+                        <mat-card-title class="card-title">{{pokemon.name | uppercase}}</mat-card-title>
                     </mat-card-header>
-                    <img mat-card-image src={{pokemon.image}} alt={{pokemon.name}} height="96" width="96">
-                    <mat-card-content class="card-content">
-                        <p>
-                            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
-                            Japan.
-                            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-                            originally
-                            bred for hunting.
-                        </p>
-                    </mat-card-content>
+                    <img mat-card-image class="card-image" src={{pokemon.image}} alt={{pokemon.name}}>
                 </mat-card>
 
             </mat-grid-tile>
@@ -25,7 +36,9 @@
         </mat-grid-list>
     </div>
 
-    <mat-paginator [length]="151" [pageSize]="size" [pageIndex]="page" [pageSizeOptions]="[10, 20, 30]"
+
+
+    <mat-paginator [length]="records" [pageSize]="size" [pageIndex]="page" [pageSizeOptions]="[10, 20, 30]"
         (page)="getPokemons($event)">
     </mat-paginator>
 
