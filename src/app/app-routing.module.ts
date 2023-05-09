@@ -9,6 +9,10 @@ const routes: Routes = [
     component: PokemonCardComponent,
   },
   {
+    path: 'index',
+    component: PokemonCardComponent,
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },
