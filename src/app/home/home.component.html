@@ -1,0 +1,28 @@
+<!-- <div class="container">
+
+    <mat-toolbar color="#ffd700" class="main-header">
+        <span class="pokemon title">Busca tu Pokemon</span>
+        <span class="spacer"></span>
+
+        <form class="search-form">
+            <mat-form-field>
+                <mat-label>Busca tu Pokemon</mat-label>
+                    <input matInput
+                    placeholder="Nombre del Pokemón"
+                    aria-label="Pokemón"
+                    [matAutocomplete]="auto"
+                    [formControl]="pokemonCtrl">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="pokemonSelected($event)">
+              <mat-option *ngFor="let pokemon of filteredPokemon | async" [value]="pokemon.name">
+                <img class="example-option-img" aria-hidden [src]="pokemon.image" height="25">
+                <span>{{pokemon.name}}</span> 
+              </mat-option>
+            </mat-autocomplete>
+            </mat-form-field>
+            <button mat-icon-button (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </form>
+
+    </mat-toolbar>
+</div> -->

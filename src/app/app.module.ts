@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -33,7 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FooterComponent,
     HomeComponent,
     PokemonCardComponent,
-    SearchBarComponent
+
   ],
   imports: [
     BrowserModule,

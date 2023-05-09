@@ -1,7 +1,13 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { Router } from '@angular/router';
+import { Observable, map, startWith } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
+export interface Pokemon{
+  image: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-pokemon-card',
@@ -16,8 +22,16 @@ export class PokemonCardComponent implements OnInit {
   page: number = 0;
   records: number = 151;
   namePokemon: string = "";
+  pokemonCtrl = new FormControl();
+  filteredPokemon: Observable<Pokemon[]>
 
-  constructor(private pokemonService: PokemonService, private router: Router,) { }
+  constructor(private pokemonService: PokemonService, private router: Router,) {
+    this.filteredPokemon = this.pokemonCtrl.valueChanges
+    .pipe(
+      startWith(''),
+      map((pokemon) =>pokemon ? this.filterPokemon(pokemon) : this.pokemonsList.slice())
+    );
+   }
 
   ngOnInit(): void {
     this.getPokemons({ pageIndex: 0, pageSize: this.records });
@@ -46,7 +60,6 @@ export class PokemonCardComponent implements OnInit {
               console.log(err);
             },
             complete: () => {
-              console.log(this.pokemonsList)
               if (this.pokemonsList.length === this.records - 1) {
                 for (let i = 1; i <= this.size; i++) {
                   this.data.push(this.pokemonsList[i - 1])
@@ -69,7 +82,8 @@ export class PokemonCardComponent implements OnInit {
     this.records = 0;
     //cargando
 
-    this.pokemonService.getPokemon(this.namePokemon).subscribe(res => {
+    this.pokemonService.getPokemon(this.namePokemon).subscribe({
+      next: (res) => {
       pokemonData = {
         image: res.sprites.other.dream_world.front_default,
         name: res.name
@@ -77,14 +91,32 @@ export class PokemonCardComponent implements OnInit {
       this.data.push(pokemonData);
       this.records += 1;
     },
-      err => {
+    error: (err) => {
         console.log(err);
-      })
+      },
+      complete: ()=>{
+       
+      // this.data= this.pokemonsList.filter(x => x.name.includes(this.namePokemon))
+      //   console.log(this.pokemonsList)
+      }
+    });
   }
 
-  //Obtiene elemento seleccionado
-  // getRow(row: { position: any; }){
-  //   this.router.navigateByUrl(`/pokeDetail/${row.position}`)
-  // }
+  filterPokemon(value: string): Pokemon[] {
+    const filterValue = value.toLowerCase();
+    return this.pokemonsList.filter(pokemon => pokemon.name.toLowerCase().indexOf(filterValue)=== 0);
+  }
+
+  pokemonSelected(obj: any){
+    const pokemon = this.pokemonsList.find(x => x.name === obj.option.value);
+    this.data = [pokemon];
+    this.records= 1;
+    console.log(pokemon)
+  }
+
+  deletePokemon(position: number){
+    const pokemonIndex= this.pokemonsList.findIndex(x => x.position === position);
+    this.pokemonsList= this.pokemonsList.splice(pokemonIndex, 1);
+  }
 
 }

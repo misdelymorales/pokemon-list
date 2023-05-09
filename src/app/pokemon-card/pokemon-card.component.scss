@@ -1,5 +1,19 @@
 @import "../../assets/styles/variables.scss";
 
+//secondry toolbar
+.toolbar-secondary{
+  // justify-content: space-around;
+}
+.main-header{
+  justify-content: space-around;
+}
+
+.search-form{
+  height: inherit
+}
+
+
+// pokemons card
 .container {
   width: 100%;
   margin-top: 20px;
@@ -38,3 +52,4 @@ img {
 .card-content {
   padding-top: 0.75rem;
 }
+
