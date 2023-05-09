@@ -23,7 +23,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatGridListModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

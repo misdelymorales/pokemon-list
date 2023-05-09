@@ -14,6 +14,7 @@ export interface Pokemon{
   templateUrl: './pokemon-card.component.html',
   styleUrls: ['./pokemon-card.component.scss']
 })
+
 export class PokemonCardComponent implements OnInit {
 
   data: any[] = [];
@@ -116,7 +117,10 @@ export class PokemonCardComponent implements OnInit {
 
   deletePokemon(position: number){
     const pokemonIndex= this.pokemonsList.findIndex(x => x.position === position);
-    this.pokemonsList= this.pokemonsList.splice(pokemonIndex, 1);
+    const pokemonIndexData= this.data.findIndex(x => x.position === position);
+    this.pokemonsList.splice(pokemonIndex, 1);
+    this.data.splice(pokemonIndexData, 1);
+    this.records -=1
   }
 
 }
