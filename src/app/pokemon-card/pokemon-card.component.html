@@ -1,9 +1,11 @@
 <div class="toolbar-secondary">
-    <mat-toolbar color="#ffd700" class="main-header">
-        <span class="pokemon title">Busca tu Pokemon</span>
-        <span class="spacer"></span>
+    <mat-toolbar class="main-header">
+
+       
 
         <form class="search-form">
+            <span class="pokemon title">Busca tu Pokemon</span>
+            <span class="spacer"></span>
             <mat-form-field>
                 <mat-label>Busca tu Pokemon</mat-label>
                 <input matInput placeholder="Nombre del Pokemón" aria-label="Pokemón" [matAutocomplete]="auto"
@@ -31,8 +33,12 @@
             <mat-grid-tile *ngFor="let pokemon of data">
 
                 <mat-card class="pokemon-card">
-                    <mat-card-header>
+                    <mat-card-header class="card-header">
                         <mat-card-title class="card-title">{{pokemon.name | uppercase}}</mat-card-title>
+                        <button mat-icon-button color="warn" aria-label="Eliminar pokemón" class="card-button-delete"
+                            (click)="deletePokemon(pokemon.position)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
                     </mat-card-header>
                     <img mat-card-image class="card-image" src={{pokemon.image}} alt={{pokemon.name}}>
                 </mat-card>
