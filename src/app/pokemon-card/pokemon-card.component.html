@@ -5,8 +5,8 @@
                 <mat-icon>sort_by_alpha</mat-icon>
             </button>
         </div>
-        
-<form class="search-form">
+
+        <form class="search-form">
             <mat-form-field>
                 <mat-label>Busca tu Pokemón</mat-label>
                 <input matInput placeholder="Nombre del Pokemón" aria-label="Pokemón" [matAutocomplete]="auto"
@@ -24,29 +24,27 @@
 </div>
 
 <div class="container">
-    <div class="grid-container">
 
-        <!-- <mat-grid-list cols="3" rowHeight="25rem" > -->
-
-            <div  class="pokemon-cards" >
-
-                <mat-card class="pokemon-card" *ngFor="let pokemon of data" >
-                    <mat-card-header class="card-header">
-                        <mat-card-title class="card-title">{{pokemon.name | uppercase}}</mat-card-title>
-                        <button mat-icon-button color="warn" aria-label="Eliminar pokemón" class="card-button-delete"
-                            (click)="deletePokemon(pokemon.position)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-card-header>
-                    <div class="card-image-container"><img mat-card-image class="card-image" src={{pokemon.image}} alt={{pokemon.name}}></div>
-                    
-                </mat-card>
-
-            </div>
-
-        <!-- </mat-grid-list> -->
+    <div class="loading" *ngIf="loading">
+        <img src="../../assets/images/pokeball-loading-animation.gif" />
     </div>
 
+    <div class="pokemon-cards" *ngIf="!loading">
+
+        <mat-card class="pokemon-card" *ngFor="let pokemon of data">
+            <mat-card-header class="card-header">
+                <mat-card-title class="card-title">{{pokemon.name | uppercase}}</mat-card-title>
+                <button mat-icon-button color="warn" aria-label="Eliminar pokemón" class="card-button-delete"
+                    (click)="deletePokemon(pokemon.position)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-header>
+            <div class="card-image-container"><img mat-card-image class="card-image" src={{pokemon.image}}
+                    alt={{pokemon.name}}></div>
+
+        </mat-card>
+
+    </div>
 
 
     <mat-paginator [length]="records" [pageSize]="size" [pageIndex]="page" [pageSizeOptions]="[10, 20, 30]"

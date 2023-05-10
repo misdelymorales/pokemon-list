@@ -26,6 +26,7 @@ export class PokemonCardComponent implements OnInit {
   pokemonCtrl = new FormControl();
   filteredPokemon: Observable<Pokemon[]>;
   sortOrder: boolean = true;
+  loading: boolean = false;
 
 
   constructor(private pokemonService: PokemonService, private router: Router,) {
@@ -43,6 +44,7 @@ export class PokemonCardComponent implements OnInit {
 
   getPokemons(obj: any) {
     this.data = []
+    this.loading = true;
     const start = obj.pageIndex * obj.pageSize;
     const end = obj.pageIndex * obj.pageSize + obj.pageSize;
 
@@ -110,6 +112,7 @@ export class PokemonCardComponent implements OnInit {
   loadData(start: number, end: number) {
     this.data = [];
     this.data = this.pokemonsList.slice(start, end)
+    this.loading= false;
   }
 
 }
