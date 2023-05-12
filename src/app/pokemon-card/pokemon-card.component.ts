@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 import { Router } from '@angular/router';
 import { Observable, map, startWith } from 'rxjs';
@@ -19,7 +19,7 @@ export class PokemonCardComponent implements OnInit {
 
   data: any[] = [];
   pokemonsList: any[] = [];
-  size: number = 10;
+  size: number = 15;
   page: number = 0;
   records: number = 151;
   namePokemon: string = "";

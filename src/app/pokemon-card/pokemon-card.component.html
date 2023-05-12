@@ -32,7 +32,7 @@
     <div class="pokemon-cards" *ngIf="!loading">
 
         <mat-card class="pokemon-card" *ngFor="let pokemon of data">
-            <mat-card-header class="card-header">
+            <mat-card-header  class="card-header">
                 <mat-card-title class="card-title">{{pokemon.name | uppercase}}</mat-card-title>
                 <button mat-icon-button color="warn" aria-label="Eliminar pokemón" class="card-button-delete"
                     (click)="deletePokemon(pokemon.position)">
@@ -47,8 +47,8 @@
     </div>
 
 
-    <mat-paginator [length]="records" [pageSize]="size" [pageIndex]="page" [pageSizeOptions]="[10, 20, 30]"
-        (page)="getPokemons($event)">
+    <mat-paginator [length]="records" [pageSize]="size" [pageIndex]="page" [pageSizeOptions]="[15, 30, 45]"
+        (page)="getPokemons($event)" class="mat-paginator">
     </mat-paginator>
 
 </div>
