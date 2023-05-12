@@ -5,7 +5,6 @@ Pokemon Fan
 
 Este proyecto consiste en una fan page con temática de Pokemón, en la cual se puede realizar una busqueda por nombre y ordenar alfabéticamente de manera ascendente o descendente. 
 
-Para ver la página consulte el siguiente [enlace]()
 ![ScreenshotPage](./src/assets/images/screenshotPage.JPG)
 ***
 
