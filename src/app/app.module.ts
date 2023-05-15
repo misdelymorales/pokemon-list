@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSortModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
