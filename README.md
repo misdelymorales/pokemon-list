@@ -23,7 +23,6 @@ $ cd ../path/to/the/file
 $ npm install
 $ ng serve
 ```
-
 ***
 
 <h3 align="center"> Fan Page Pokemón -  Misdely Morales  </h3>
